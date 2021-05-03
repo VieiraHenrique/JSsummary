@@ -6,7 +6,10 @@
           <h3>{{ method.title }}</h3>
         </v-expansion-panel-header>
         <v-expansion-panel-content>
-          <p v-html="method.content"></p>
+          <p v-for="(p, i) in method.content" :key="i">
+            {{ p }}
+          </p>
+          <code>{{ method.code }}</code>
           <a :href="method.link" target="blank">See MDN docs</a>
           <a :href="method.video" target="blank">See video</a>
         </v-expansion-panel-content>
@@ -22,8 +25,8 @@ export default {
       methods: [
         {
           title: 'push()',
-          content:
-            '<p>Add element to end of array and return new length</p><code>array.push(element)</code>',
+          content: [`Add element to end of array and return new length`],
+          code: `array.push(element)`,
           link:
             'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push',
           video:
@@ -31,8 +34,8 @@ export default {
         },
         {
           title: 'pop()',
-          content:
-            '<p>Remove and return last element from an array</p><code>array.pop()</code>',
+          content: [`Remove and return last element from an array`],
+          code: `array.pop()`,
           link:
             'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/pop',
           video:
@@ -40,8 +43,8 @@ export default {
         },
         {
           title: 'unshift()',
-          content:
-            '<p>Add element to start of array and return new length</p><code>array.unshift(element)</code>',
+          content: [`Add element to start of array and return new length`],
+          code: `array.unshift(element)`,
           link:
             'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift',
           video:
@@ -49,8 +52,8 @@ export default {
         },
         {
           title: 'shift()',
-          content:
-            '<p>Remove first element of array and return the element</p><code>array.shift()</code>',
+          content: [`Remove first element of array and return the element`],
+          code: `array.shift()`,
           link:
             'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/shift',
           video:
@@ -58,8 +61,10 @@ export default {
         },
         {
           title: 'concat()',
-          content:
-            '<p>Return new array by joining arrays array1 and array2 together</p><code>array1.concat(array2)</code>',
+          content: [
+            `Return new array by joining arrays array1 and array2 together`,
+          ],
+          code: `array1.concat(array2)`,
           link:
             'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat',
           video:
@@ -67,8 +72,8 @@ export default {
         },
         {
           title: 'includes()',
-          content:
-            '<p>Returns TRUE or FALSE if the Array includes an element.</p><code>array.includes(element)</code>',
+          content: [`Returns TRUE or FALSE if the Array includes an element.`],
+          code: `array.includes(element)`,
           link:
             'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes',
           video:
@@ -76,8 +81,11 @@ export default {
         },
         {
           title: 'indexOf()',
-          content: `<p>Returns the index of an elements of the Array. </br>
-If it is not found, it returns -1</p><code>array.indexOf(element)</code>`,
+          content: [
+            `Returns the index of an elements of the Array.`,
+            `If it is not found, it returns -1`,
+          ],
+          code: `array.indexOf(element)`,
           link:
             'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf',
           video:
@@ -85,9 +93,12 @@ If it is not found, it returns -1</p><code>array.indexOf(element)</code>`,
         },
         {
           title: 'join()',
-          content: `<p>Creates a string from an array. </br>
-If no argument is passed, it's separated by a comma ( , ). Otherwise you can pass by what it will be joined.</br>
-If it is not found, it returns -1</p><code>array.join('-')</code>`,
+          content: [
+            `Creates a string from an array.`,
+            `If no argument is passed, it's separated by a comma ( , )`,
+            `Otherwise you can pass by what it will be joined.`,
+          ],
+          code: `array.join('-')`,
           link:
             'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join',
           video:
@@ -95,7 +106,8 @@ If it is not found, it returns -1</p><code>array.join('-')</code>`,
         },
         {
           title: 'reverse()',
-          content: `<p>Reverses an array. The original array is changed</p><code>array.reverse()</code>`,
+          content: [`Reverses an array. The original array is changed`],
+          code: `array.reverse()`,
           link:
             'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse',
           video:
@@ -103,7 +115,11 @@ If it is not found, it returns -1</p><code>array.join('-')</code>`,
         },
         {
           title: 'slice()',
-          content: `<p>Copy portion of an array. Returns a new array</p><p>It doesn't impact the orignal array.</p><p>It takes an index argument from when you want to copy the array and another to when you want to end. If you put 0, it will copy the whole array.</p><code>array.slice(startIndex, endIndex)</code>`,
+          content: [
+            `Copy portion of an array. Returns a new array</p><p>It doesn't impact the orignal array.`,
+            `It takes an index argument from when you want to copy the array and another to when you want to end. If you put 0, it will copy the whole array.`,
+          ],
+          code: `array.slice(startIndex, endIndex)`,
           link:
             'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice',
           video:
@@ -111,7 +127,11 @@ If it is not found, it returns -1</p><code>array.join('-')</code>`,
         },
         {
           title: 'splice()',
-          content: `<p>Remove / replace elements of an array. It changes the original array.</p><p>It returns the elements deleted.</p><p>It takes three arguments :</p><code>array.splice( where to begin , how many delete , what to insert)</code>`,
+          content: [
+            `Remove / replace elements of an array. It changes the original array.</p><p>It returns the elements deleted.`,
+            `It takes three arguments :`,
+          ],
+          code: `array.splice( where to begin , how many delete , what to insert)`,
           link:
             'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice',
           video:
@@ -119,7 +139,11 @@ If it is not found, it returns -1</p><code>array.join('-')</code>`,
         },
         {
           title: 'sort()',
-          content: `<p>Sorts an array by the first character (after converting it to a string).</p><p>Changes the original array</p><code>array.sort()</code>`,
+          content: [
+            `Sorts an array by the first character (after converting it to a string).`,
+            `Changes the original array`,
+          ],
+          code: `array.sort()`,
           link:
             'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort',
           video:
@@ -140,6 +164,7 @@ a {
   display: block;
 }
 code {
-  color: red;
+  display: inline-block;
+  margin-bottom: 20px;
 }
 </style>
